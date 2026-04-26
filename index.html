@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SfM Benchmark — Sean Flynn</title>
+<title>3D Reconstruction Benchmark — Sean Hiroki Flynn</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -140,7 +140,7 @@ footer a:hover{color:#fff}
     <li><a href="#results">Results</a></li>
     <li><a href="#findings">Findings</a></li>
     <li><a href="#poster">Poster</a></li>
-    <li><a href="https://github.com/sflynn7/sfm-benchmark">GitHub ↗</a></li>
+    <li><a href="https://github.com/sflynn7/3d-reconstruction-benchmark.github.io">GitHub ↗</a></li>
   </ul>
 </nav>
 
@@ -192,18 +192,21 @@ footer a:hover{color:#fff}
   <div class="info-grid">
     <div class="info-box">
       <h3>Indoor iPhone scenes</h3>
-      <p>Three objects filmed with an iPhone 15 Pro under day and night lighting (~90 frames/scene at 3 fps). Ground truth from a <strong>RealSense Gemini 335L</strong> stereo camera (.BAG → PLY).</p>
+      <p>Three objects filmed with an iPhone 15 Pro under day and night lighting (~90 frames/scene at 3 fps). Ground truth from a <strong>ORBBEC Gemini 335Lg</strong> stereo camera (.BAG → PLY).</p>
       <div class="scene-row">
         <span class="scene-pill">Ukulele Day</span>
         <span class="scene-pill">Ukulele Night</span>
+        <span class="scene-pill">Artificial Plant Day</span>
+        <span class="scene-pill">Artificial Plant Night</span>
         <span class="scene-pill">Electric Fan Day</span>
         <span class="scene-pill">Electric Fan Night</span>
+        <span class="scene-pill">Lab Chair</span>
         <span class="scene-pill">Mannequin Head</span>
       </div>
     </div>
     <div class="info-box">
       <h3>Evaluation pipeline</h3>
-      <p>Scale reconstruction → SOR filter → manual align → ICP → Cloud/Cloud Distance (Chamfer + Hausdorff) in CloudCompare. F-Score computed via custom Python script.</p>
+      <p>Scale reconstruction → manual align → ICP → Cloud/Mesh Distance (Chamfer + Hausdorff) in CloudCompare. F-Score computed via custom Python script.</p>
     </div>
   </div>
 </section>
