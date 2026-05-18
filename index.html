@@ -159,6 +159,9 @@ tbody tr:hover td{background:var(--blue-100)!important;transition:background 0.1
 .img-slot{cursor:zoom-in}
 .img-slot:hover{box-shadow:var(--shadow-md);transform:scale(1.01)}
 .img-slot img{width:100%;height:100%;object-fit:cover;display:block}
+.img-slot video{width:100%;height:100%;object-fit:cover;display:block}
+.video-slot{aspect-ratio:16/9;cursor:default}
+.gt-slot .placeholder{display:none}
 
 /* ── LIGHTBOX ── */
 #lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(2,10,20,0.92);align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(6px)}
@@ -281,23 +284,21 @@ footer a:hover{color:#fff}
 
 <section id="dataset" style="padding-top:0">
   <div class="section-label reveal-left">Dataset &amp; pipeline</div>
-  <div class="info-grid">
-    <div class="info-box reveal stagger-1">
-      <h3>Indoor iPhone scenes</h3>
-      <p>Four objects filmed with an iPhone 15 Pro under day and night lighting (~90 frames/scene at 3 fps). Ground truth from a <strong>ORBBEC Gemini 335Lg</strong> stereo camera (.BAG → PLY).</p>
-      <img src="images/methods.png" alt="Methods overview" style="width:100%;margin-top:0.75rem;border-radius:6px">
-      <div class="scene-row">
-        <span class="scene-pill">Ukulele Day</span>
-        <span class="scene-pill">Ukulele Night</span>
-        <span class="scene-pill">Artificial Plant Day</span>
-        <span class="scene-pill">Electric Fan Day</span>
-        <span class="scene-pill">Lab Chair</span>
-      </div>
+  <div class="info-box reveal">
+    <h3>Indoor iPhone scenes</h3>
+    <p>Four objects filmed with an iPhone 15 Pro under day and night lighting (~90 frames/scene at 3 fps). Ground truth from a <strong>ORBBEC Gemini 335Lg</strong> stereo camera (ROS1 .BAG).</p>
+    <img src="images/methods.png" alt="Methods overview" style="width:100%;margin-top:0.75rem;border-radius:6px">
+    <div class="scene-row">
+      <span class="scene-pill">Ukulele Day</span>
+      <span class="scene-pill">Ukulele Night</span>
+      <span class="scene-pill">Artificial Plant Day</span>
+      <span class="scene-pill">Electric Fan Day</span>
+      <span class="scene-pill">Lab Chair</span>
     </div>
-    <div class="info-box reveal stagger-2">
-      <h3>Evaluation pipeline</h3>
-      <img src="images/evaluation_pipeline.png" alt="Evaluation pipeline diagram" style="width:100%;margin-top:0.5rem;border-radius:6px">
-    </div>
+  </div>
+  <div class="info-box reveal" style="margin-top:14px">
+    <h3>Evaluation pipeline</h3>
+    <img src="images/evaluation_pipeline.png" alt="Evaluation pipeline diagram" style="width:100%;margin-top:0.5rem;border-radius:6px">
   </div>
 </section>
 
@@ -311,10 +312,20 @@ footer a:hover{color:#fff}
   <div class="scene-block reveal">
     <div class="scene-title">Ukulele — Day</div>
     <div class="gallery-subsection">
-      <div class="gallery-sublabel">Input Image</div>
-      <div class="img-grid cols-4">
-        <!-- Replace these divs with: <div class="img-slot"><img src="images/ukulele_day_01.jpg" alt="Ukulele Day frame 1"></div> -->
-        <div class="img-slot"><img src="images/Ukulele_Day/Ukulele_Day001.jpg" alt="Ukulele Day frame 1"></div>
+      <div class="gallery-sublabel">Input &amp; Ground Truth</div>
+      <div class="img-grid cols-2">
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Input Video</div>
+          <div class="img-slot video-slot">
+            <video src="images/Ukulele_Day/Ukulele_Day.MOV" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
+          <div class="img-slot video-slot gt-slot">
+            <video src="images/Ukulele_Day/GT_Ukulele_Day.mov" autoplay muted loop playsinline></video>
+          </div>
+        </div>
       </div>
     </div>
     <div class="gallery-subsection">
@@ -334,9 +345,20 @@ footer a:hover{color:#fff}
   <div class="scene-block reveal">
     <div class="scene-title">Ukulele — Night</div>
     <div class="gallery-subsection">
-      <div class="gallery-sublabel">Input Image</div>
-      <div class="img-grid cols-4">
-        <div class="img-slot"><img src="images/Ukulele_Night/Ukulele_Night001.jpg" alt="Ukulele Night Input Image"></div>
+      <div class="gallery-sublabel">Input &amp; Ground Truth</div>
+      <div class="img-grid cols-2">
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Input Video</div>
+          <div class="img-slot video-slot">
+            <video src="images/Ukulele_Night/Ukulele_Night.MOV" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
+          <div class="img-slot video-slot gt-slot">
+            <video src="images/Ukulele_Night/GT_Ukulele_Night.mov" autoplay muted loop playsinline></video>
+          </div>
+        </div>
       </div>
     </div>
     <div class="gallery-subsection">
@@ -356,9 +378,20 @@ footer a:hover{color:#fff}
   <div class="scene-block reveal">
     <div class="scene-title">Artificial Plant - Day</div>
     <div class="gallery-subsection">
-      <div class="gallery-sublabel">Input Image</div>
-      <div class="img-grid cols-4">
-        <div class="img-slot"><img src="images/ArtificialPlant_Day/ArtificialPlant_Day001.jpg" alt="Electric Fan Night Input Image"></div>
+      <div class="gallery-sublabel">Input &amp; Ground Truth</div>
+      <div class="img-grid cols-2">
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Input Video</div>
+          <div class="img-slot video-slot">
+            <video src="images/ArtificialPlant_Day/ArtificialPlant_Day.MOV" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
+          <div class="img-slot video-slot gt-slot">
+            <video src="images/ArtificialPlant_Day/GT_ArtificialPlant_Day.mov" autoplay muted loop playsinline></video>
+          </div>
+        </div>
       </div>
     </div>
     <div class="gallery-subsection">
@@ -378,9 +411,20 @@ footer a:hover{color:#fff}
   <div class="scene-block reveal">
     <div class="scene-title">Electric Fan — Day</div>
     <div class="gallery-subsection">
-      <div class="gallery-sublabel">Input Image</div>
-      <div class="img-grid cols-4">
-        <div class="img-slot"><img src="images/ElectricFan_Day/ElectricFan_Day001.jpg" alt="Electric Fan Day Input Image"></div>
+      <div class="gallery-sublabel">Input &amp; Ground Truth</div>
+      <div class="img-grid cols-2">
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Input Video</div>
+          <div class="img-slot video-slot">
+            <video src="images/ElectricFan_Day/ElectricFan_Day.MOV" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
+          <div class="img-slot video-slot gt-slot">
+            <video src="images/ElectricFan_Day/GT_ElectricFan_Day.mov" autoplay muted loop playsinline></video>
+          </div>
+        </div>
       </div>
     </div>
     <div class="gallery-subsection">
@@ -396,13 +440,58 @@ footer a:hover{color:#fff}
   </div>
   <hr class="scene-divider">
 
+   <!-- LAB CHAIR -->
+  <div class="scene-block reveal">
+    <div class="scene-title">Lab Chair<span style="font-size:10px;font-weight:500;color:var(--ink3);margin-left:6px">(qualitative only)</span></div>
+    <div class="gallery-subsection">
+      <div class="gallery-sublabel">Input &amp; Ground Truth</div>
+      <div class="img-grid cols-2">
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Input Video</div>
+          <div class="img-slot video-slot">
+            <video src="images/Lab Chair/LabChair.MOV" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
+          <div class="img-slot video-slot gt-slot">
+            <video src="images/Lab Chair/GT_LabChair.mp4" autoplay muted loop playsinline></video>
+            <div class="placeholder"><span class="placeholder-icon">⬛</span><span class="placeholder-text">Ground truth video<br>coming soon</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-subsection">
+      <div class="gallery-sublabel">CloudCompare results</div>
+      <div class="img-grid cols-3">
+        <div class="img-labeled"><div class="img-label img-label-gt">Ground Truth</div><div class="img-slot"><img src="images/Lab Chair/GT_LabChair.png" alt="Ground Truth CloudCompare"></div></div>
+        <div class="img-labeled"><div class="img-label img-label-vggt">VGGT</div><div class="img-slot"><img src="images/Lab Chair/VGGT_LabChair.png" alt="VGGT CloudCompare"></div></div>
+        <div class="img-labeled"><div class="img-label img-label-pi3">Pi3</div><div class="img-slot"><img src="images/Lab Chair/Pi3_LabChair.png" alt="Pi3 CloudCompare"></div></div>
+        <div class="img-labeled"><div class="img-label img-label-da3">Depth Anything 3</div><div class="img-slot"><img src="images/Lab Chair/DA3_LabChair.png" alt="DA3 CloudCompare"></div></div>
+        <div class="img-labeled"><div class="img-label img-label-colmap">COLMAP</div><div class="img-slot"><img src="images/Lab Chair/COLMAP_LabChair.png" alt="COLMAP CloudCompare"></div></div>
+      </div>
+    </div>
+  </div>
+
   <!-- MANNEQUIN HEAD -->
   <div class="scene-block reveal">
     <div class="scene-title">Mannequin Head<span style="font-size:10px;font-weight:500;color:var(--ink3);margin-left:6px">(qualitative only)</span></div>
     <div class="gallery-subsection">
-      <div class="gallery-sublabel">Input Image</div>
-      <div class="img-grid cols-4">
-        <div class="img-slot"><img src="images/MannequinHead/MannequinHead001.jpg" alt="Mannequin Head Input Image"></div>
+      <div class="gallery-sublabel">Input &amp; Ground Truth</div>
+      <div class="img-grid cols-2">
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Input Video</div>
+          <div class="img-slot video-slot">
+            <video src="images/MannequinHead/MannequinHead.MOV" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="img-labeled">
+          <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
+          <div class="img-slot video-slot gt-slot">
+            <video src="images/MannequinHead/GT_MannequinHead.mp4" autoplay muted loop playsinline></video>
+            <div class="placeholder"><span class="placeholder-icon">⬛</span><span class="placeholder-text">Ground truth video<br>coming soon</span></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="gallery-subsection">
@@ -575,6 +664,7 @@ document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observ
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightbox-img');
 document.querySelectorAll('.img-slot img').forEach(img => {
+  if (img.closest('.video-slot')) return;
   img.addEventListener('click', () => {
     lbImg.src = img.src;
     lbImg.alt = img.alt;
@@ -586,6 +676,14 @@ lb.addEventListener('click', e => { if(e.target !== lbImg) closeLb(); });
 document.getElementById('lightbox-close').addEventListener('click', closeLb);
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
 function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+
+// GT video placeholders — show "coming soon" if the file doesn't exist yet
+document.querySelectorAll('.gt-slot video').forEach(v => {
+  v.addEventListener('error', () => {
+    v.style.display = 'none';
+    v.nextElementSibling.style.display = 'flex';
+  });
+});
 
 // Scene switching
 function switchScene(scene, btn) {
