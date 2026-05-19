@@ -677,22 +677,26 @@ document.getElementById('lightbox-close').addEventListener('click', closeLb);
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
 function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
 
-// Lazy-load videos: only fetch when they scroll into view
+// Error handler for GT slots with missing files (Lab Chair, Mannequin Head)
+document.querySelectorAll('.gt-slot video').forEach(v => {
+  v.addEventListener('error', () => {
+    const ph = v.nextElementSibling;
+    if (ph && ph.classList.contains('placeholder')) {
+      v.style.display = 'none';
+      ph.style.display = 'flex';
+    }
+  });
+});
+
+// Lazy-load videos: set src when near viewport; autoplay attribute handles the rest
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach(({target, isIntersecting}) => {
-    if (!isIntersecting) return;
+    if (!isIntersecting || !target.dataset.src) return;
     target.src = target.dataset.src;
-    target.play().catch(() => {});
-    target.addEventListener('error', () => {
-      const ph = target.nextElementSibling;
-      if (ph && ph.classList.contains('placeholder')) {
-        target.style.display = 'none';
-        ph.style.display = 'flex';
-      }
-    }, { once: true });
+    delete target.dataset.src;
     videoObserver.unobserve(target);
   });
-}, { rootMargin: '200px' });
+}, { rootMargin: '300px' });
 document.querySelectorAll('video[data-src]').forEach(v => videoObserver.observe(v));
 
 // Scene switching
