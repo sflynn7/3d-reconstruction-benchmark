@@ -317,13 +317,13 @@ footer a:hover{color:#fff}
         <div class="img-labeled">
           <div class="img-label img-label-gt">Input Video</div>
           <div class="img-slot video-slot">
-            <video data-src="images/Ukulele_Day/Ukulele_Day.MOV" autoplay muted loop playsinline></video>
+            <video src="images/Ukulele_Day/Ukulele_Day.MOV" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
         <div class="img-labeled">
           <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
           <div class="img-slot video-slot gt-slot">
-            <video data-src="images/Ukulele_Day/Ukulele_Day.mp4" autoplay muted loop playsinline></video>
+            <video src="images/Ukulele_Day/Ukulele_Day.mp4" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
       </div>
@@ -350,13 +350,13 @@ footer a:hover{color:#fff}
         <div class="img-labeled">
           <div class="img-label img-label-gt">Input Video</div>
           <div class="img-slot video-slot">
-            <video data-src="images/Ukulele_Night/Ukulele_Night.MOV" autoplay muted loop playsinline></video>
+            <video src="images/Ukulele_Night/Ukulele_Night.MOV" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
         <div class="img-labeled">
           <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
           <div class="img-slot video-slot gt-slot">
-            <video data-src="images/Ukulele_Night/Ukulele_Night.mp4" autoplay muted loop playsinline></video>
+            <video src="images/Ukulele_Night/Ukulele_Night.mp4" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
       </div>
@@ -383,13 +383,13 @@ footer a:hover{color:#fff}
         <div class="img-labeled">
           <div class="img-label img-label-gt">Input Video</div>
           <div class="img-slot video-slot">
-            <video data-src="images/ArtificialPlant_Day/ArtificialPlant_Day.MOV" autoplay muted loop playsinline></video>
+            <video src="images/ArtificialPlant_Day/ArtificialPlant_Day.MOV" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
         <div class="img-labeled">
           <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
           <div class="img-slot video-slot gt-slot">
-            <video data-src="images/ArtificialPlant_Day/ArtificialPlant_Day.mp4" autoplay muted loop playsinline></video>
+            <video src="images/ArtificialPlant_Day/ArtificialPlant_Day.mp4" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
       </div>
@@ -416,13 +416,13 @@ footer a:hover{color:#fff}
         <div class="img-labeled">
           <div class="img-label img-label-gt">Input Video</div>
           <div class="img-slot video-slot">
-            <video data-src="images/ElectricFan_Day/ElectricFan_Day.MOV" autoplay muted loop playsinline></video>
+            <video src="images/ElectricFan_Day/ElectricFan_Day.MOV" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
         <div class="img-labeled">
           <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
           <div class="img-slot video-slot gt-slot">
-            <video data-src="images/ElectricFan_Day/ElectricFan_Day.mp4" autoplay muted loop playsinline></video>
+            <video src="images/ElectricFan_Day/ElectricFan_Day.mp4" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
       </div>
@@ -449,13 +449,13 @@ footer a:hover{color:#fff}
         <div class="img-labeled">
           <div class="img-label img-label-gt">Input Video</div>
           <div class="img-slot video-slot">
-            <video data-src="images/Lab Chair/LabChair.MOV" autoplay muted loop playsinline></video>
+            <video src="images/Lab Chair/LabChair.MOV" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
         <div class="img-labeled">
           <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
           <div class="img-slot video-slot gt-slot">
-            <video data-src="images/Lab Chair/GT_LabChair.mp4" autoplay muted loop playsinline></video>
+            <video src="images/Lab Chair/GT_LabChair.mp4" autoplay muted loop playsinline preload="none"></video>
             <div class="placeholder"><span class="placeholder-icon">⬛</span><span class="placeholder-text">Ground truth video<br>coming soon</span></div>
           </div>
         </div>
@@ -482,13 +482,13 @@ footer a:hover{color:#fff}
         <div class="img-labeled">
           <div class="img-label img-label-gt">Input Video</div>
           <div class="img-slot video-slot">
-            <video data-src="images/MannequinHead/MannequinHead.MOV" autoplay muted loop playsinline></video>
+            <video src="images/MannequinHead/MannequinHead.MOV" autoplay muted loop playsinline preload="none"></video>
           </div>
         </div>
         <div class="img-labeled">
           <div class="img-label img-label-gt">Stereo Depth Ground Truth</div>
           <div class="img-slot video-slot gt-slot">
-            <video data-src="images/MannequinHead/GT_MannequinHead.mp4" autoplay muted loop playsinline></video>
+            <video src="images/MannequinHead/GT_MannequinHead.mp4" autoplay muted loop playsinline preload="none"></video>
             <div class="placeholder"><span class="placeholder-icon">⬛</span><span class="placeholder-text">Ground truth video<br>coming soon</span></div>
           </div>
         </div>
@@ -677,7 +677,7 @@ document.getElementById('lightbox-close').addEventListener('click', closeLb);
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
 function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
 
-// Error handler for GT slots with missing files (Lab Chair, Mannequin Head)
+// Show placeholder for GT slots where the video file doesn't exist yet
 document.querySelectorAll('.gt-slot video').forEach(v => {
   v.addEventListener('error', () => {
     const ph = v.nextElementSibling;
@@ -688,16 +688,16 @@ document.querySelectorAll('.gt-slot video').forEach(v => {
   });
 });
 
-// Lazy-load videos: set src when near viewport; autoplay attribute handles the rest
+// Load videos one at a time as they enter the viewport
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach(({target, isIntersecting}) => {
-    if (!isIntersecting || !target.dataset.src) return;
-    target.src = target.dataset.src;
-    delete target.dataset.src;
+    if (!isIntersecting) return;
+    target.load();
+    target.addEventListener('canplay', () => target.play().catch(() => {}), { once: true });
     videoObserver.unobserve(target);
   });
-}, { rootMargin: '300px' });
-document.querySelectorAll('video[data-src]').forEach(v => videoObserver.observe(v));
+}, { rootMargin: '200px' });
+document.querySelectorAll('.video-slot video').forEach(v => videoObserver.observe(v));
 
 // Scene switching
 function switchScene(scene, btn) {
